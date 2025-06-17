@@ -4,6 +4,7 @@ import PartnerSection from '../components/PartnerSection'
 import IndustrySlider from '../components/IndustrySlider'
 import FullServiceSection from '../components/FullServiceSection'
 import work from "../assets/images/work.png"
+import HowWeWorkTimeline from '../components/HowWeWorkTimeline'
 const Home = () => {
   return (
     <div>
@@ -11,7 +12,7 @@ const Home = () => {
       <PartnerSection />
       <IndustrySlider />
       <FullServiceSection />
-      <img src={work} alt="" className='w-11/12 h-full mx-auto' />
+     <HowWeWorkTimeline />
     </div>
   )
 }
