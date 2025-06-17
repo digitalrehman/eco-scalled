@@ -34,7 +34,7 @@ const SuccessStories = () => {
             <img
               src={assets.mobile}
               alt="Story 1"
-              className="w-[250px] md:w-[180px] lg:w-full h-auto rounded-lg"
+              className="w-full h-auto rounded-lg"
             />
       </div>
     </section>
