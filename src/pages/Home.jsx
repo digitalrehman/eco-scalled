@@ -3,8 +3,9 @@ import HeroSection from '../components/HeroSection'
 import PartnerSection from '../components/PartnerSection'
 import IndustrySlider from '../components/IndustrySlider'
 import FullServiceSection from '../components/FullServiceSection'
-import work from "../assets/images/work.png"
 import HowWeWorkTimeline from '../components/HowWeWorkTimeline'
+import SuccessStories from '../components/SuccessStories'
+import ScheduleConsultation from '../components/ScheduleConsultation'
 const Home = () => {
   return (
     <div>
@@ -13,6 +14,8 @@ const Home = () => {
       <IndustrySlider />
       <FullServiceSection />
      <HowWeWorkTimeline />
+     <SuccessStories />
+     <ScheduleConsultation />
     </div>
   )
 }

@@ -26,6 +26,7 @@ import image1 from "./images/image-1.png"
 import image2 from "./images/image-2.png"
 import image3 from "./images/image-3.png"
 import automation from "./images/automation.png"
+import mobile from "./images/Mobile.png"
 
 let services_image={
     amazon_1,
@@ -53,7 +54,8 @@ let assets = {
     image1,
     image2,
     image3,
-    automation
+    automation,
+    mobile
 }
 let companies = [
     company1,
