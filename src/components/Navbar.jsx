@@ -9,31 +9,31 @@ const services = [
         title: "Amazon Brand Management",
         icon: services_image.amazon,
         small_icon: services_image.amazon_1,
-        path: "/services/amazon",
+        path: "/amazon",
     },
     {
         title: "Shopify Store Development",
         icon: services_image.shopify,
         small_icon: services_image.shopify_1,
-        path: "/services/shopify",
+        path: "/shopify",
     },
     {
         title: "Tiktok Shop Automation",
         icon: services_image.tiktok,
         small_icon: services_image.tiktok_1,
-        path: "/services/tiktok",
+        path: "/tiktok",
     },
     {
         title: "Walmart Marketplace",
         icon: services_image.walmart,
         small_icon: services_image.walmart_1,
-        path: "/services/walmart",
+        path: "/walmart",
     },
     {
         title: "Ecommerce Marketing",
         icon: services_image.ecommerce,
         small_icon: services_image.ecommerce_1,
-        path: "/services/marketing",
+        path: "/walmart",
     },
 ];
 

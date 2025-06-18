@@ -7,7 +7,6 @@ import HowWeWorkTimeline from '../components/HowWeWorkTimeline'
 import SuccessStories from '../components/SuccessStories'
 import ScheduleConsultation from '../components/ScheduleConsultation'
 import Testimonials from '../components/Testimonials'
-import Footer from '../components/Footer'
 const Home = () => {
   return (
     <div>
@@ -19,7 +18,7 @@ const Home = () => {
      <SuccessStories />
      <ScheduleConsultation />
      <Testimonials />
-     <Footer />
+ 
     </div>
   )
 }
