@@ -33,7 +33,7 @@ const services = [
         title: "Ecommerce Marketing",
         icon: services_image.ecommerce,
         small_icon: services_image.ecommerce_1,
-        path: "/walmart",
+        path: "/ecommerce",
     },
 ];
 
