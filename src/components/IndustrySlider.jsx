@@ -28,8 +28,10 @@ export default function IndustrySlider() {
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold my-4">Industries We Work With</h2>
-          <div className="flex gap-2">
+          <h2 className="text-2xl md:text-3xl font-bold my-4">
+            Industries We Work With
+          </h2>
+          <div className="hidden md:flex gap-2">
             <button
               onClick={prev}
               disabled={index === 0}
@@ -48,15 +50,13 @@ export default function IndustrySlider() {
         </div>
 
         {/* Slider Container */}
-        <div className="relative overflow-hidden">
-          <div
-            className="flex transition-transform duration-500"
-            style={{ transform: `translateX(-${index * 25}%)` }}
-          >
+        <div className="relative">
+          {/* For small screens: scrollable */}
+          <div className="md:hidden flex gap-4 overflow-x-auto scrollbar-hide -mx-4 px-4">
             {industries.map((item, i) => (
               <div
                 key={i}
-                className="w-1/4 px-2 flex-shrink-0"
+                className="min-w-[75%] sm:min-w-[60%] flex-shrink-0"
               >
                 <div className="rounded-md shadow hover:shadow-lg transition">
                   <img
@@ -64,12 +64,35 @@ export default function IndustrySlider() {
                     alt={item.title}
                     className="w-full h-40 object-cover rounded-t-md"
                   />
-                  <div className="p-2 text-center font-medium text-sm md:text-base">
+                  <div className="p-2 text-center font-medium text-sm">
                     {item.title}
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* For md+ screens: slider with buttons */}
+          <div className="hidden md:block overflow-hidden">
+            <div
+              className="flex transition-transform duration-500"
+              style={{ transform: `translateX(-${index * 25}%)` }}
+            >
+              {industries.map((item, i) => (
+                <div key={i} className="w-1/4 px-2 flex-shrink-0">
+                  <div className="rounded-md shadow hover:shadow-lg transition">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-40 object-cover rounded-t-md"
+                    />
+                    <div className="p-2 text-center font-medium text-sm md:text-base">
+                      {item.title}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

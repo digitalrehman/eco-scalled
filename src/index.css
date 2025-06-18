@@ -3,3 +3,12 @@
 .background{
   background: linear-gradient(rgba(1, 1, 19, 0.274), rgba(1, 1, 29, 0.26)),url("./assets//images/background.png");
 }
+
+/* Global CSS (e.g., index.css or globals.css) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

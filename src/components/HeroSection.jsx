@@ -60,11 +60,11 @@ const Hero = () => {
 
         {/* Right Side Images */}
         <div className="lg:w-1/2 relative min-h-[400px] w-full ">
-          <img src={assets.banner} alt="Main" className="absolute right-10 bottom-0 w-60 lg:w-80 z-10" />
+          <img src={assets.banner} alt="Main" className="absolute md:right-10 right-1/3 bottom-0 w-60 lg:w-80 z-10" />
           <img src={assets.hero_walmart} alt="Walmart" className="absolute top-10 right-40 w-36" />
-          <img src={assets.hero_tiktok} alt="TikTok" className="absolute top-20 right-0 w-36" />
-          <img src={assets.hero_shopify} alt="Shopify" className="absolute bottom-10 -right-10 w-28" />
-          <img src={assets.hero_amazon} alt="Amazon Card" className="absolute bottom-20 right-40 w-40" />
+          <img src={assets.hero_tiktok} alt="TikTok" className="absolute top-30 md:right-0 left-30 w-36" />
+          <img src={assets.hero_shopify} alt="Shopify" className="absolute bottom-10 md:-right-10 left-16 w-28" />
+          <img src={assets.hero_amazon} alt="Amazon Card" className="absolute bottom-20 md:right-40 right-20 w-40" />
         </div>
       </div>
     </section>

@@ -98,14 +98,14 @@ export default function Component() {
               <div className="flex space-x-2 mb-4">
                 <div className="w-12 h-12 bg-gray-700 rounded overflow-hidden">
                   <img
-                    src={services_image.tiktok_1}
+                    src={services_image.tiktok}
                     alt="Product 1"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="w-12 h-12 bg-gray-700 rounded overflow-hidden">
                   <img
-                    src={services_image.shopify_1}
+                    src={services_image.shopify}
                     alt="Product 2"
                     className="w-full h-full object-cover"
                   />
