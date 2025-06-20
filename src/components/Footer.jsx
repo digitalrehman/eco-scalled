@@ -1,155 +1,93 @@
-"use client"
+import React from "react";
+import {
+  Facebook,
+  Instagram,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { assets, services_image } from "../assets/config";
 
-import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react"
-import { assets, services_image } from "../assets/config"
-
-export default function Component() {
+const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Left Section - Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center mb-4">
-             
-             <img src={assets.logo} alt="" />
-            </div>
-            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s.
-            </p>
-            <div className="flex items-start text-sm text-gray-400">
-              <MapPin className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
-              <span>Marwal Street, Frankfurt 2349 Germany</span>
-            </div>
-          </div>
-
-          {/* Middle Section - Navigation Links */}
-          <div className="lg:col-span-1">
-            <h3 className="text-orange-400 font-semibold mb-4">Recent Work</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Free Consultation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  All Services
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Media & Platform Links */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              <div className="flex space-x-3 mb-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center hover:bg-blue-700 transition-colors"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-blue-500 rounded flex items-center justify-center hover:bg-blue-600 transition-colors"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-
-            <div className="text-orange-400 font-semibold mb-4">Amazon</div>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  TikTok Shop
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Walmart
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Shopify
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Right Section - Logos and Contact */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              {/* Platform Logos */}
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="bg-orange-500 text-white px-3 py-1 rounded text-sm font-bold">amazon</div>
-                <div className="bg-green-600 text-white px-3 py-1 rounded text-sm font-bold">Shopify</div>
-              </div>
-
-              {/* Product Images */}
-              <div className="flex space-x-2 mb-4">
-                <div className="w-12 h-12 bg-gray-700 rounded overflow-hidden">
-                  <img
-                    src={services_image.tiktok}
-                    alt="Product 1"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-12 h-12 bg-gray-700 rounded overflow-hidden">
-                  <img
-                    src={services_image.shopify}
-                    alt="Product 2"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-2">
-              <div className="flex items-center text-sm">
-                <Phone className="w-4 h-4 mr-2 text-orange-400" />
-                <span className="text-gray-400">(021) 658 888 0000</span>
-              </div>
-              <div className="flex items-center text-sm">
-                <Mail className="w-4 h-4 mr-2 text-orange-400" />
-                <span className="text-gray-400">info@ecomscaled.com</span>
-              </div>
-            </div>
-          </div>
+    <footer className="bg-[#111111] text-white px-4 md:px-20 pt-10 text-sm ">
+      <div className="max-w-7xl flex border-b border-white/10 pb-10">
+        {/* Left Section */}
+        <div className="space-y-4 col-span-1">
+          <img src={assets.logo} alt="ECOMSCALED" className="w-44" />
+          <p className="text-gray-400 max-w-xs">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+          </p>
+          <p className="flex items-center gap-2 text-white font-semibold">
+           <img src={assets.phone} /> Maxuel Street, Frankfurt 2589 Germany.
+          </p>
         </div>
 
-        {/* Bottom Section - Newsletter and Copyright */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            {/* Newsletter */}
-            <div className="mb-4 md:mb-0">
-              <h4 className="text-white font-semibold mb-3">Newsletter</h4>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-white text-gray-900 px-4 py-2 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
-                />
-                <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-r font-semibold transition-colors">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-
-            {/* Copyright */}
-            <div className="text-gray-400 text-sm">© ECOMSCALED All Rights Reserved.</div>
+        {/* Middle Navigation Columns */}
+        <div className="flex-wrap flex mt-7 justify-around w-full">
+          <div className="space-y-2">
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" />Recent Work</p>
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" />Free Consultation</p>
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" />About us</p>
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" />All Services</p>
+          </div>
+          <div className="space-y-1.5">
+            <button className="w-full px-10 bg-[#0065B1] text-white py-2 rounded flex items-center justify-center gap-2">
+              <Facebook className="w-4 h-4" /> FACEBOOK
+            </button>
+            <button className="w-full bg-[#0065B1] text-white py-2 rounded flex items-center justify-center gap-2">
+              <Instagram className="w-4 h-4" /> INSTAGRAM
+            </button>
+            <button className="w-full bg-[#0065B1] text-white py-2 rounded flex items-center justify-center gap-2">
+              <Facebook className="w-4 h-4" /> FACEBOOK
+            </button>
+          </div>
+          <div className="space-y-2">
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" /> Amazon</p>
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" /> Tiktok Shop</p>
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" /> Walmart</p>
+            <p className="font-semibold flex items-center gap-1"><img src={assets.right_up} alt="" /> Shopify</p>
           </div>
         </div>
       </div>
+
+      {/* Bottom Section */}
+      <div className="max-w-7xl mx-auto mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        {/* Newsletter */}
+        <div className="flex items-center bg-white rounded overflow-hidden max-w-md w-full">
+          <input
+            type="email"
+            placeholder="Email address"
+            className="px-4 py-2 text-black placeholder:text-gray-400 w-full"
+          />
+          <button className="bg-[#0065B1] text-white px-4 py-2">Subscribe</button>
+        </div>
+
+        {/* Brand Logos */}
+        <div className="flex justify-center gap-4">
+          <img src={services_image.amazon} alt="Amazon" className="h-14 w-20" />
+          <img src={services_image.shopify} alt="Shopify" className="h-14 w-20" />
+          <img src={services_image.tiktok} alt="Tiktok" className="h-14 w-20" />
+          <img src={services_image.walmart} alt="Walmart" className="h-14 w-20" />
+        </div>
+
+        {/* Contact */}
+        <div className="flex flex-col items-center md:items-end space-y-2">
+          <p className="flex items-center gap-2">
+            <Phone className="text-[#0065B1] w-4 h-4" /> ( 021 ) 666 888 0000
+          </p>
+          <p className="flex items-center gap-2">
+            <Mail className="text-[#0065B1] w-4 h-4" /> info@ecomscaled.com
+          </p>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="text-center text-gray-400 py-6 text-xs">
+        © <span className="text-[#0065B1]">Ecomscaled.</span> All Rights Reserved.
+      </div>
     </footer>
-  )
-}
+  );
+};
+
+export default Footer;

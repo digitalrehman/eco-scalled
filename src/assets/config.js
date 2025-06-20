@@ -20,6 +20,7 @@ import company2 from "./images/company2.png"
 import company3 from "./images/company3.png"
 import company4 from "./images/company3.png"
 import company5 from "./images/company3.png"
+import company6 from "./images/company6.png"
 import about from "./images/about.svg"
 import image from "./images/image.png"
 import image1 from "./images/image-1.png"
@@ -27,6 +28,10 @@ import image2 from "./images/image-2.png"
 import image3 from "./images/image-3.png"
 import automation from "./images/automation.png"
 import mobile from "./images/Mobile.png"
+import star from "./images/square.png"
+import checkbox from "./images/checkbox.png"
+import phone from "./images/phone-call.png"
+import right_up from "./images/right-up.png"
 
 let services_image={
     amazon_1,
@@ -55,20 +60,15 @@ let assets = {
     image2,
     image3,
     automation,
-    mobile
+    mobile,
+    star,
+    checkbox,
+    phone,
+    right_up
 }
 let companies = [
-    company1,
-    company3,
-    company5,
-    company1,
-    company3,
-    company2,
-    company5,
-    company1,
-    company4,
-    company3,
-    company1,
+    company6,
+    company6,
 ]
 
 

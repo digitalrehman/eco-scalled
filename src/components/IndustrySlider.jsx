@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {  CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import { assets } from "../assets/config";
 
 const industries = [
@@ -27,24 +27,24 @@ export default function IndustrySlider() {
     <div className="py-10 bg-white w-full">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold my-4">
+        <div className="flex items-center mb-6 font-['Roboto']">
+          <h2 className="text-2xl text-center md:text-3xl font-black my-4">
             Industries We Work With
           </h2>
-          <div className="hidden md:flex gap-2">
+          <div className="hidden md:flex gap-2 ml-auto">
             <button
               onClick={prev}
               disabled={index === 0}
-              className="bg-blue-100 hover:bg-blue-200 p-2 rounded-full disabled:opacity-50"
+              className=" hover:bg-blue-200 p-2 rounded-full disabled:opacity-50"
             >
-              <ChevronLeft className="w-5 h-5 text-blue-600" />
+              <CircleArrowLeft className="size-7 text-blue-600" />
             </button>
             <button
               onClick={next}
               disabled={index >= industries.length - visibleCards}
-              className="bg-blue-100 hover:bg-blue-200 p-2 rounded-full disabled:opacity-50"
+              className=" hover:bg-blue-200 p-2 rounded-full disabled:opacity-50"
             >
-              <ChevronRight className="w-5 h-5 text-blue-600" />
+              <CircleArrowRight className="size-7 text-blue-600" />
             </button>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function IndustrySlider() {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-40 object-cover rounded-t-md"
+                    className="w-full h-60 object-cover rounded-t-md"
                   />
                   <div className="p-2 text-center font-medium text-sm">
                     {item.title}
@@ -84,7 +84,7 @@ export default function IndustrySlider() {
                     <img
                       src={item.img}
                       alt={item.title}
-                      className="w-full h-40 object-cover rounded-t-md"
+                      className="w-full h-60 object-cover rounded-t-md"
                     />
                     <div className="p-2 text-center font-medium text-sm md:text-base">
                       {item.title}

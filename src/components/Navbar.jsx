@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { assets, services_image } from "../assets/config";
 
@@ -37,11 +37,10 @@ const services = [
     },
 ];
 
+let navlink = [{name: "Home", path: "/"},{name: "About", path: "/about"}]
 const Navbar = () => {
     // At the top of your component:
     const [showServices, setShowServices] = useState(false);
-
-
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleServiceToggle = () => {
         setShowServices(prev => !prev);
@@ -49,25 +48,25 @@ const Navbar = () => {
 
     return (
         <nav className="bg-white shadow-md w-full z-20">
-            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2">
-                    <img src={assets.logo} alt="Logo" className="w-32" />
+                    <img src={assets.logo} alt="Logo" className="w-40" />
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex gap-6 items-center">
-                    <Link to="/" className="hover:text-blue-600 font-medium">
-                        Home
-                    </Link>
-                    <Link to="/about" className="hover:text-blue-600 font-medium">
-                        About
-                    </Link>
+                <div className="hidden md:flex gap-6 font-['Poppins'] font-bold items-center">
+                    {
+                        navlink.map((item, index) => (
+                            <NavLink to={item.path} key={index} className={({ isActive }) => (isActive ? "text-blue-600" : "hover:text-blue-600")}>{item.name}</NavLink>
+                        ))
+                    }
+                   
 
                     {/* Services Dropdown */}
                     <div className="relative">
                         <button
-                            className="flex items-center gap-1 hover:text-blue-600 font-medium"
+                            className="flex items-center gap-1 hover:text-blue-600"
                             onClick={handleServiceToggle}
                         >
                             Services <ChevronDown className="mt-1" />
@@ -127,12 +126,12 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {mobileMenu && (
                 <div className="md:hidden px-4 pb-4 flex flex-col gap-3 bg-white shadow-md">
-                    <Link to="/" className="hover:text-blue-600">
-                        Home
-                    </Link>
-                    <Link to="/about" className="hover:text-blue-600">
-                        About
-                    </Link>
+                    {
+                        navlink.map((item, index) => (
+                            <NavLink to={item.path} key={index} className={({ isActive }) => (isActive ? "text-blue-600" : "hover:text-blue-600")}>{item.name}</NavLink>
+                        ))
+                    }
+                   
 
                     {/* Click to toggle mobile services */}
                     <details className="text-blue-700">

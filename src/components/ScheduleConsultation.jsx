@@ -1,119 +1,175 @@
-import { User } from "lucide-react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const ScheduleConsultation = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    service: "",
+    comments: "",
+  });
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState("");
+
+  const times = [
+    "3:00 pm",
+    "3:15 pm",
+    "3:30 pm",
+    "3:45 pm",
+    "4:00 pm",
+    "4:15 pm",
+    "4:30 pm",
+    "4:45 pm",
+    "5:00 pm",
+  ];
+
+  const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+  const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+  const startDay = startOfMonth.getDay();
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({
+      selectedDate: selectedDate.toDateString(),
+      selectedTime,
+      ...formData,
+    });
+  };
+
   return (
-    <section className="bg-white py-16 px-4 md:px-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-        Schedule A <span className="text-[#0065B1]">Free Consultation</span>
-      </h2>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        {/* Left Side: Calendar View */}
-        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-[#0065B1] text-white p-6 w-full md:w-1/2">
-            <div className="flex flex-col items-center justify-center">
-              <div className="w-16 flex items-center justify-center h-16 bg-white rounded-full mb-4">
-                <User className="text-gray-400" size={35} />
-              </div>
-              <h3 className="text-xl font-semibold text-center mb-2">
-                Meet with Ecomscaled
-              </h3>
-              <p className="text-sm text-center mb-4">June 2025</p>
-              <div className="grid grid-cols-7 gap-1 text-center text-sm">
-                {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((day) => (
-                  <span className="font-medium" key={day}>{day}</span>
+    <div className="min-h-screen px-4 py-10 bg-white font-sans">
+      <div className="flex flex-col lg:flex-row items-start gap-8">
+        {/* Left Calendar Section */}
+        <div className="w-full lg:w-1/2 flex flex-col bg-white shadow-md">
+          <h2 className="text-3xl text-center font-['Roboto'] font-black  mb-7 px-6 pt-6">Schedule A Free Consultation</h2>
+          <div className="flex flex-col md:flex-row">
+            <div className="bg-[#0065B1] text-white w-full md:w-1/2 p-6 text-center">
+              <div className="rounded-full bg-white w-16 h-16 mx-auto mb-4" />
+              <h3 className="text-lg font-bold">Meet with Ecomscaled</h3>
+              <p className="mt-1 text-sm font-semibold">
+                {currentDate.toLocaleString("default", { month: "long", year: "numeric" })}
+              </p>
+              <div className="grid grid-cols-7 gap-2 text-xs mt-4">
+                {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((d) => (
+                  <div key={d} className="font-bold">{d}</div>
                 ))}
-                {Array.from({ length: 30 }, (_, i) => (
-                  <span
+                {Array(startDay).fill("").map((_, idx) => (
+                  <div key={"empty" + idx}></div>
+                ))}
+                {Array(daysInMonth).fill("").map((_, i) => {
+                  const dayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), i + 1);
+                  const isSelected = selectedDate.toDateString() === dayDate.toDateString();
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => setSelectedDate(dayDate)}
+                      className={`p-2 rounded-full transition-all ${
+                        isSelected ? "bg-white text-[#0065B1] font-bold" : "hover:bg-white hover:text-[#0065B1]"
+                      }`}
+                    >
+                      {i + 1}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="w-full md:w-1/2 p-6">
+              <h4 className="font-semibold text-sm mb-2">Meeting duration</h4>
+              <p className="text-sm text-gray-600 mb-1">30 mins</p>
+              <p className="text-sm mt-4 font-semibold">What time works best?</p>
+              <p className="text-xs text-gray-500">Showing times for {selectedDate.toDateString()}</p>
+              <p className="text-xs text-gray-500 mb-2">UTC +05:00 Aqtau, Aqtobe, Ashgabat...</p>
+              <div className="max-h-48 overflow-y-auto">
+                {times.map((time, i) => (
+                  <button
                     key={i}
-                    className={`py-1 rounded-full ${i === 1 ? "bg-white text-[#0065B1] font-bold" : "hover:bg-white hover:text-[#0065B1] cursor-pointer"}`}
+                    onClick={() => setSelectedTime(time)}
+                    className={`block w-full  p-2 rounded-md text-gray-400 text-center border border-gray-200 my-1 transition ${
+                      selectedTime === time ? "bg-[#0065B1] text-white font-semibold" : "hover:bg-blue-100"
+                    }`}
                   >
-                    {i + 1}
-                  </span>
+                    {time}
+                  </button>
                 ))}
               </div>
-            </div>
-          </div>
-          <div className="p-6 w-full md:w-1/2 bg-gray-50 border-l">
-            <h4 className="text-sm font-semibold mb-3">Meeting duration</h4>
-            <div className="bg-blue-100 text-blue-800 px-3 py-1 inline-block text-xs rounded mb-4">
-              30 min
-            </div>
-            <p className="text-sm mb-1">What time works best?</p>
-            <p className="text-xs text-blue-700 mb-4">
-              Showing times for June 2, 2025
-            </p>
-            <div className="text-xs text-gray-500 mb-2">
-              UTC +05:00 Aqtau, Aqtobe, Ashgabat, Karachi...
-            </div>
-            <div className="h-40 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-              {[
-                "3:00 pm",
-                "3:15 pm",
-                "3:30 pm",
-                "3:45 pm",
-                "4:00 pm",
-                "4:15 pm",
-              ].map((time) => (
-                <div
-                  key={time}
-                  className="py-1 px-2 hover:bg-blue-100 rounded cursor-pointer text-sm"
-                >
-                  {time}
-                </div>
-              ))}
             </div>
           </div>
         </div>
 
-        {/* Right Side: Form */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-2xl font-bold mb-6">Speak To An Expert</h3>
-          <form className="flex flex-col space-y-4">
-            <input
-              type="text"
-              placeholder="Your Name *"
-              className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              placeholder="Your email address *"
-              className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Contact number *"
-              className="border border-gray-300 px-4 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <select
-              className="border border-gray-300 px-4 py-2 rounded w-full text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option>Service(s) You're Interested In*</option>
-              <option>SEO</option>
-              <option>Marketing</option>
-              <option>Web Development</option>
-            </select>
-            <textarea
-              placeholder="Additional Comments *"
-              className="border border-gray-300 px-4 py-2 rounded w-full resize-none h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-            <p className="text-xs text-gray-500">
-              If you opt-in to receive SMS communications from us, we will not
-              share your phone number or related information with any external
-              parties. Your SMS opt-in information is kept strictly confidential
-              and used solely for the purpose of sending you the communications
-              you have requested.
-            </p>
-            <button
-              type="submit"
-              className="bg-[#0065B1] text-white px-6 py-3 rounded-full font-medium hover:bg-[#004d89] transition duration-300"
-            >
-              Schedule A Free Consultation Now!
-            </button>
-          </form>
-        </div>
+        {/* Right Form Section */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full lg:w-1/2 shadow-md p-6 bg-white space-y-4"
+        >
+          <h2 className="text-3xl text-center font-['Roboto'] font-black mb-4">Speak To An Expert</h2>
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name *"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="w-full border border-gray-300 p-2 rounded outline-none focus:ring-2 focus:ring-[#0065B1]"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email Address *"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="w-full border border-gray-300 p-2 rounded outline-none focus:ring-2 focus:ring-[#0065B1]"
+            required
+          />
+          <input
+            type="text"
+            name="contact"
+            placeholder="Contact Number *"
+            value={formData.contact}
+            onChange={handleInputChange}
+            className="w-full border border-gray-300 p-2 rounded outline-none focus:ring-2 focus:ring-[#0065B1]"
+            required
+          />
+          <select
+            name="service"
+            value={formData.service}
+            onChange={handleInputChange}
+            className="w-full border border-gray-300 p-2 rounded outline-none focus:ring-2 focus:ring-[#0065B1]"
+            required
+          >
+            <option value="">Service(s) You're Interested In *</option>
+            <option value="SEO">SEO</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Development">Development</option>
+          </select>
+          <textarea
+            name="comments"
+            value={formData.comments}
+            onChange={handleInputChange}
+            placeholder="Additional Comments *"
+            className="w-full border border-gray-300 p-2 rounded outline-none focus:ring-2 focus:ring-[#0065B1]"
+          ></textarea>
+
+          <p className="text-xs text-gray-600">
+            If you opt-in to receive SMS communications from us, we will not share your phone number or related information with any external parties.
+          </p>
+
+          <button
+            type="submit"
+            className="bg-[#0065B1] text-white font-bold px-6 py-2 rounded-md hover:bg-blue-700 transition"
+          >
+            Schedule A Free Consultation Now!
+          </button>
+        </form>
       </div>
-    </section>
+    </div>
   );
 };
 
