@@ -58,14 +58,16 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto">
         <p className="text-sm uppercase mb-2">Testimonials</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-12 max-w-xl leading-tight">
-          Hear people say <br /> and reveal our <span className="text-white">Advertising services</span>
+          Hear people say <br /> and reveal our{" "}
+          <span className="text-white">Advertising services</span>
         </h2>
 
-        <div className="relative flex justify-center items-start gap-6 min-h-[400px] transition-all duration-500">
+        {/* Cards Section */}
+        <div className="relative flex flex-col md:flex-row justify-center items-start gap-6 min-h-[400px] transition-all duration-500">
           {visibleTestimonials.map((item, idx) => (
             <div
               key={idx}
-              className={`transition-all duration-500 max-w-md w-full p-14  shadow-md z-30 ${
+              className={`transition-all duration-500 w-full md:w-1/3 p-6 md:p-14 shadow-md z-30 ${
                 idx === 0
                   ? "bg-white text-black"
                   : "bg-[#0065B1] text-white rotate-2 opacity-80"
@@ -75,7 +77,7 @@ const Testimonials = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="size-14 object-cover"
+                  className="size-14 object-cover rounded-full"
                 />
                 <div>
                   <h4 className="font-semibold text-md">{item.name}</h4>
@@ -85,15 +87,18 @@ const Testimonials = () => {
               <p className="text-sm leading-relaxed">{item.text}</p>
             </div>
           ))}
-          <Quote className="text-5xl absolute top-0 right-0 text-white opacity-10" />
+          <Quote className="text-5xl absolute top-0 right-0 text-white opacity-10 hidden md:block" />
         </div>
 
-        <div className="flex justify-between items-center mt-10 px-4">
+        {/* Dots & Navigation */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-10 px-4 gap-4">
           <div className="flex space-x-1">
             {testimonials.map((_, idx) => (
               <span
                 key={idx}
-                className={`w-2 h-2 rounded-full ${idx === start ? "bg-white" : "bg-white/30"}`}
+                className={`w-2 h-2 rounded-full ${
+                  idx === start ? "bg-white" : "bg-white/30"
+                }`}
               ></span>
             ))}
           </div>

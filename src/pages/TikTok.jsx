@@ -1,6 +1,6 @@
 import React from 'react'
 import banner from "../assets/images/background.png"
-import Banner from '../components/Banner'
+import { Banner, Benefit, ShopAbout } from '../components/Banner'
 import Testimonials from '../components/Testimonials'
 import ScheduleConsultation from '../components/ScheduleConsultation'
 import SuccessStories from '../components/SuccessStories'
@@ -12,98 +12,46 @@ import OurProcess from '../components/OurProcess '
 const TikTok = () => {
   return (
     <div>
- <Banner image={banner} title={"TikTok Automation"} />
+      <Banner image={banner} title={"TikTok Automation"} />
 
- 
- <section className="bg-white text-gray-800 px-4 py-10 md:py-20">
-      {/* Top Section */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-        <div className="bg-gray-400 h-60 md:h-80 w-full rounded-xl"></div>
-        <div>
-          <h2 className="text-xl md:text-2xl font-bold mb-4">
-            Walmart Marketplace Services
-          </h2>
-          <p className="mb-4">
-            Walmart is becoming a serious player in the e-commerce world, and
-            getting in early can be a big win. But navigating the approval
-            process, policies, and backend tools can feel like learning a new
-            language. We simplify the process.
-          </p>
-          <p>
-            We help you get approved, list products properly, manage your
-            pricing, and run ads that make sense. The best part? It’s still less
-            competitive than Amazon — which means a better shot at visibility
-            and sales.
-          </p>
-        </div>
-      </div>
 
-      {/* Benefits Section */}
-      <div className="max-w-6xl mx-auto mt-16 text-center">
-        <h3 className="text-lg md:text-2xl font-bold mb-10">
-          Benefits of launching Walmart Marketplace Services with EcomScaled
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm md:text-base">
-          <div>
-            <h4 className="font-semibold mb-2">
-              A compliant and fully set up Walmart store
-            </h4>
-            <p>
-              We ensure your Walmart store is set up correctly, following all
-              compliance checkboxes so you can start selling without delays.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">
-              SEO-optimized listings with strategic pricing
-            </h4>
-            <p>
-              Product listings are fully optimized with keyword-rich content
-              strategies and competitively priced strategies to boost visibility
-              and conversions.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">
-              Insights and reporting to track sales
-            </h4>
-            <p>
-              Stay informed with clear, actionable reports that keep you
-              monitoring performance and make smarter business decisions.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">
-              Competitive analysis for product positioning
-            </h4>
-            <p>
-              We analyze your competitors to position your product effectively,
-              giving you a strong edge in a crowded marketplace.
-            </p>
-          </div>
-        </div>
+      <section className="bg-white text-gray-800 px-4 py-10 md:py-20">
+        {/* Top Section */}
 
-        {/* Button */}
-        <div className="mt-10">
-          <button className="bg-gray-800 text-white py-2 px-6 rounded-full hover:bg-gray-700 transition">
-            Ready To Launch
-          </button>
-        </div>
-      </div>
-    </section>
-    <OurProcess process={{
-                step1: "Creator Partnerships & Video Planning",
-                step2: "Order Fulfillment & Backend Logistics",
-                step3: "Campaign Monitoring & Retargeting",
-                step4: "Product Selection & Trend Research",
-                step5: "TikTok Shop Setup & Account Verification",
-                step6: "Order Fulfillment & Backend Logistics",
-            }} />
-    <PricingPlans />
-    <FullServiceSection />
-    <SuccessStories />
-     <ScheduleConsultation />
-     <Testimonials />
+        <ShopAbout image="" data={{
+          title: "TikTok Shop Automation",
+          description1: "TikTok Shop is where content meets commerce — and it's exploding. If you’ve got a product with visual appeal or trending potential, we can help you tap into TikTok’s massive user base without the stress of setting up or running it alone.",
+          description2: "We’ll handle the store setup, connect you with creators, manage your orders, and track your performance — so you can stay focused on growing your brand."
+        }} />
+
+        {/* Benefits Section */}
+        <Benefit main={"Benefits of launching TikTok Shop Automation Services with EcomScaled"} data={[{
+          title: " A working TikTok Shop in days, not weeks",
+          description: "We launch your TikTok Shop fast — fully set up and ready to sell within days, so you don’t miss out on trends."
+        }, {
+          title: "Ongoing creator management and video content support",
+          description: "From finding the right creators to managing content, we handle it all to keep your brand active and engaging on TikTok."
+        }, {
+          title: "Order tracking and delivery integration",
+          description: "Seamless integration with order tracking and delivery systems ensures a smooth shopping experience for your customers."
+        }, {
+          title: "Strategy to go viral and stay visible",
+          description: "We craft data-backed content strategies to help your brand go viral and maintain visibility in TikTok’s fast-paced ecosystem."
+        }]} />
+      </section>
+      <OurProcess process={{
+        step1: "Creator Partnerships & Video Planning",
+        step2: "Order Fulfillment & Backend Logistics",
+        step3: "Campaign Monitoring & Retargeting",
+        step4: "Product Selection & Trend Research",
+        step5: "TikTok Shop Setup & Account Verification",
+        step6: "Order Fulfillment & Backend Logistics",
+      }} />
+      <PricingPlans />
+      <FullServiceSection />
+      <SuccessStories />
+      <ScheduleConsultation />
+      <Testimonials />
     </div>
   )
 }

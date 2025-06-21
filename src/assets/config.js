@@ -32,6 +32,9 @@ import star from "./images/square.png"
 import checkbox from "./images/checkbox.png"
 import phone from "./images/phone-call.png"
 import right_up from "./images/right-up.png"
+import slider1 from "./images/slider2.png"
+import slider2 from "./images/slider1.svg"
+import mobile_cover from "./images/mobile.png"
 
 let services_image={
     amazon_1,
@@ -64,7 +67,11 @@ let assets = {
     star,
     checkbox,
     phone,
-    right_up
+    right_up,
+    slider1,
+    slider2,
+    mobile_cover
+
 }
 let companies = [
     company6,
